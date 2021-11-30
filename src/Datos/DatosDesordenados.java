@@ -148,6 +148,76 @@ public class DatosDesordenados {
 	return new DatosOrdenados(Q);
     } // fin del método QuickSort
     
+    
+    //Metodo QuickSort descendente
+    private void QuicksortDes(int numeros[], int izq,int m, int der)
+    {
+            /*Este metodo recibe un arreglo de numero, y dos enteros que referencian el primer valor
+            Y el ultimo*/
+        
+            //Se toma como pivote el primer valor
+            int pivote = numeros[izq];
+            
+            //Se definen los dos lados y un auxiliar
+            int i = izq; 
+            int j = der; 
+            int aux;
+           
+            while(i<j)
+            {
+               while (numeros[i] >= pivote && i < j) 
+                  i++;
+
+               while (numeros[j] < pivote) 
+                  j--;   
+
+               if (i<j) 
+               {        
+                   perm++;
+                   aux = numeros[i];                  
+                   numeros[i]= numeros[j];
+                   numeros[j]=aux;
+               }
+            }
+
+             numeros[izq] = numeros[j]; 
+             numeros[j] = pivote;
+
+             if (izq < j-1)
+                QuicksortDes(numeros,izq,m,j-1);
+
+             if (j+1 < der)
+                QuicksortDes(numeros,j+1,m,der);
+             
+        ;
+      }
+    
+    
+    private void QuicksortDes(int numeros[], int izq, int der) {
+        int m = (der + izq) / 2;
+        if (der > izq) {
+            comp++;
+            QuicksortDes(numeros, izq, m);
+            QuicksortDes(numeros, m + 1, der);
+            QuicksortDes(numeros, izq, m, der);
+        }
+    }
+    
+    public DatosOrdenados QuickSortDescendente() {
+        //arreglo a ordenar
+        int[] quickdes = this.getCopiaValores();
+
+        
+        this.QuicksortDes(quickdes, 0, quickdes.length - 1);
+      
+        System.out.println("QSDescendente-comparaciones = " + comp);
+        System.out.println("QSDescendente-permutaciones = " + perm);
+
+        //metodo para imprimir el vctor ordenado
+        return new DatosOrdenados(quickdes);
+    }
+ //Fin del Metodo QuickSort descendente
+    
         public DatosOrdenados shell() {
         int [] s = this.getCopiaValores();
         int salto, aux, i;
