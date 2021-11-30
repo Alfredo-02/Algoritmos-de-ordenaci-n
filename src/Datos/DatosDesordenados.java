@@ -95,6 +95,31 @@ public class DatosDesordenados {
         return new DatosOrdenados(arreglo);
     }
     
+        public DatosOrdenados shell() {
+        int [] s = this.getCopiaValores();
+        int salto, aux, i;
+        boolean cambios;
+  
+        for (salto = s.length / 2; salto != 0; salto /= 2) {
+            cambios = true;
+            while (cambios) {   // Mientras se intercambie algún elemento                                         
+                cambios = false;
+                for (i = salto; i < s.length; i++)   // se da una pasada
+                {
+                    if (s[i - salto] > s[i]) {       // y si están desordenados
+                        aux = s[i];                  // se reordenan
+                        s[i] = s[i - salto];
+                        s[i - salto] = aux;
+                        cambios = true;              // y se marca como cambio.                                   
+                    }
+                }
+            
+        }
+}
+        return new DatosOrdenados(s);
+}
+    
+    
        
     
     public DatosOrdenados insertSort(){
