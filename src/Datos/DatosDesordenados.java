@@ -95,6 +95,59 @@ public class DatosDesordenados {
         return new DatosOrdenados(arreglo);
     }
     
+    static int comp = 0;
+    static int perm = 0;
+    
+    private void QuickSortAscen(int numeros[], int izq,int m, int der){
+            /*Este metodo recibe un arreglo de numero, y dos enteros que referencian el primer valor
+            Y el ultimo*/
+        
+            //Se toma como pivote el primer valor
+            int pivote = numeros[izq];
+         
+            //Se definen los dos lados y un auxiliar
+            int i = izq; 
+            int j = der; 
+            int aux;
+            
+            while(i<j){
+                while (numeros[i] <= pivote && i < j) 
+                    i++;
+                while (numeros[j] > pivote) 
+                    j--;   
+                if (i<j) {       
+                    perm++;
+                    aux = numeros[i];                  
+                    numeros[i]= numeros[j];
+                    numeros[j]=aux;
+                }
+            }
+            numeros[izq] = numeros[j]; 
+            numeros[j] = pivote;
+            if (izq < j-1)
+                QuickSortAscen(numeros,izq,m,j-1);
+            if (j+1 < der)
+                QuickSortAscen(numeros,j+1,m,der);
+    }
+    
+    private void QuicksortAs(int numeros[], int izq, int der) {
+        int m = (der + izq) / 2;
+        if (der > izq){
+            comp++;
+            QuicksortAs(numeros, izq, m);
+            QuicksortAs(numeros, m + 1, der);
+            QuickSortAscen(numeros, izq,m, der);
+        }
+    }
+    
+    public DatosOrdenados QuicksortAscendente(){
+        int [] Q = this.getCopiaValores();
+        this.QuicksortAs( Q, 0, Q.length - 1);
+        System.out.println("QSAscendente-comparaciones = " + comp);
+        System.out.println("QSAscendente-permutaciones = " + perm);
+	return new DatosOrdenados(Q);
+    } // fin del método QuickSort
+    
         public DatosOrdenados shell() {
         int [] s = this.getCopiaValores();
         int salto, aux, i;
