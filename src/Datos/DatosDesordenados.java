@@ -243,16 +243,20 @@ public class DatosDesordenados {
     
         public DatosOrdenados shell() {
         int [] s = this.getCopiaValores();
-        int salto, aux, i;
+        int salto, aux, i, cont1=0, cont2=0;
         boolean cambios;
   
         for (salto = s.length / 2; salto != 0; salto /= 2) {
+            cont1++;
             cambios = true;
-            while (cambios) {   // Mientras se intercambie algún elemento                                         
+            while (cambios) {   // Mientras se intercambie algún elemento  
+                cont1++;
                 cambios = false;
                 for (i = salto; i < s.length; i++)   // se da una pasada
                 {
+                    cont1++;
                     if (s[i - salto] > s[i]) {       // y si están desordenados
+                        cont2++;
                         aux = s[i];                  // se reordenan
                         s[i] = s[i - salto];
                         s[i - salto] = aux;
@@ -262,9 +266,39 @@ public class DatosDesordenados {
             
         }
 }
+        System.out.println("BS-iteraciones = " + cont1);
+        System.out.println("BS-comparaciones = " + cont2);
         return new DatosOrdenados(s);
 }
-    
+    public DatosOrdenados shellDescendente() {
+        int [] s = this.getCopiaValores();
+        int salto, aux, i, cont1=0,cont2=0;
+        boolean cambios;
+  
+        for (salto = s.length / 2; salto != 0; salto /= 2) {
+            cont1++;
+            cambios = true;
+            while (cambios) {   // Mientras se intercambie algún elemento                                         
+                cont1++;
+                cambios = false;
+                for (i = salto; i < s.length; i++)   // se da una pasada
+                {
+                    cont1++;
+                    if (s[i - salto] < s[i]) {       // y si están desordenados
+                        cont2++;
+                        aux = s[i];                  // se reordenan
+                        s[i] = s[i - salto];
+                        s[i - salto] = aux;
+                        cambios = true;              // y se marca como cambio.                                   
+                    }
+                }
+            
+        }
+}       
+        System.out.println("BS-iteraciones = " + cont1);
+        System.out.println("BS-comparaciones = " + cont2);
+        return new DatosOrdenados(s);
+}
     
        
     
