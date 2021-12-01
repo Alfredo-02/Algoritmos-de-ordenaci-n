@@ -43,7 +43,7 @@ public class TestOrdenamiento {
         
         System.out.println("* * * * * * * * * * * * * * * ");
         
-        //bubbleSort (Descendente reordenamiento)
+        //bubbleSort (Datos ordenados)
         t1 = System.nanoTime();   // start
         mob = m.bubbleSort();
         t2 = System.nanoTime();   // stop
@@ -61,7 +61,32 @@ public class TestOrdenamiento {
         
         System.out.println("* * * * * * * * * * * * * * * ");
         
+        //quickSort (Ascendente)
+        t1 = System.nanoTime();   // start
+        DatosOrdenados moq = m.QuicksortAscendente();
+        t2 = System.nanoTime();   // stop 
+        t = t2 - t1;
+        System.out.println("n = "+ n + " t = " + t + "ns. Algoritmo Quicksort Ascendente = " + moq);
         
+        System.out.println("* * * * * * * * * * * * * * * ");
+        
+        //quickSort (Datos ordenados)
+        t1 = System.nanoTime();   // start
+        moq = m.QuicksortAscendente();
+        t2 = System.nanoTime();   // stop 
+        t = t2 - t1;
+        System.out.println("n = "+ n + " t = " + t + "ns. Algoritmo Quicksort Ascendente Mejor Caso = " + moq);
+        
+        System.out.println("* * * * * * * * * * * * * * * ");
+        
+        //quickSort (Descendente)
+        t1 = System.nanoTime();   // start
+        moq = m.QuickSortDescendente();
+        t2 = System.nanoTime();   // stop 
+        t = t2 - t1;
+        System.out.println("n = "+ n + " t = " + t + "ns. Algoritmo Quicksort Descendete = " + moq);
+        
+        System.out.println("* * * * * * * * * * * * * * * ");
         
         
             
