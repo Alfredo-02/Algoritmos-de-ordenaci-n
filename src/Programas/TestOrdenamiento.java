@@ -88,9 +88,32 @@ public class TestOrdenamiento {
         
         System.out.println("* * * * * * * * * * * * * * * ");
         
+          //Shellsort (Ascendente)
+        t1 = System.nanoTime();   // start
+        DatosOrdenados mo = m.shell();
+        t2 = System.nanoTime();   // stop 
+        t = t2 - t1;
+        System.out.println("n = "+ n + " t = " + t + "ns. Algoritmo Shellsort Ascendente = " + mo);
         
-            
-           
-    }
+        System.out.println("* * * * * * * * * * * * * * * ");
+        
+         //Shellsort (Datos Ordenados)
+        t1 = System.nanoTime();   // start
+        mo = m.shell();
+        t2 = System.nanoTime();   // stop 
+        t = t2 - t1;
+        System.out.println("n = "+ n + " t = " + t + "ns. Algoritmo Shellsort Ascendente Mejor Caso = " + mo);
+        
+        System.out.println("* * * * * * * * * * * * * * * ");
+         
+        //Shellsort (Descendente)
+        t1 = System.nanoTime();   // start
+        mo = m.shellDescendente();
+        t2 = System.nanoTime();   // stop 
+        t = t2 - t1;
+        System.out.println("n = "+ n + " t = " + t + "ns. Algoritmo Shellsort Descendente = " + mo);
+        
+        System.out.println("* * * * * * * * * * * * * * * ");
     
+}
 }
