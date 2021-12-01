@@ -95,6 +95,29 @@ public class DatosDesordenados {
         return new DatosOrdenados(arreglo);
     }
     
+    public DatosOrdenados bubbleSortDescendente() {
+        int[] arreglo = this.getCopiaValores();
+        int n = arreglo.length;
+        int cont = 0;
+        int ci = 0;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                cont++;
+                if (arreglo[j] < arreglo[j + 1]) {
+                    // intercambiar: swap
+                    ci++;
+                    int temporal = arreglo[j];
+                    arreglo[j] = arreglo[j + 1];
+                    arreglo[j + 1] = temporal;
+                }
+            }
+        }
+        System.out.println("BS-comparaciones = " + cont);
+        System.out.println("BS-permutaciones = " + ci);
+
+        return new DatosOrdenados(arreglo);
+    }
+    
     static int comp = 0;
     static int perm = 0;
     
