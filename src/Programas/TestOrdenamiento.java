@@ -34,16 +34,38 @@ public class TestOrdenamiento {
         m.generarValores();
         System.out.println("" + m);
         
+        //bubbleSort (Ascendente)
         t1 = System.nanoTime();   // start
-            DatosOrdenados mob = m.bubbleSort();
-            t2 = System.nanoTime();   // stop
-            t= t2 - t1;
-            System.out.println("n="+ n + " t=" + t + " ns. Burbuja=" + mob);
-            t1 = System.nanoTime();   // start
-            DatosOrdenados moi = m.insertSort();
-            t2 = System.nanoTime();   // stop
-            t = t2 - t1;
-            System.out.println("n="+ n + " t=" + t + " ns. Inserción" + moi);
+        DatosOrdenados mob = m.bubbleSort();
+        t2 = System.nanoTime();   // stop
+        t = t2 - t1;
+        System.out.println("n = "+ n + " t = " + t + "ns. Algoritmo Burbuja Ascendente = " + mob);
+        
+        System.out.println("* * * * * * * * * * * * * * * ");
+        
+        //bubbleSort (Descendente reordenamiento)
+        t1 = System.nanoTime();   // start
+        mob = m.bubbleSort();
+        t2 = System.nanoTime();   // stop
+        t = t2 - t1;
+         System.out.println("n = "+ n + " t = " + t + "ns. Algoritmo Burbuja Ascendente Mejor Caso = " + mob);
+        
+        System.out.println("* * * * * * * * * * * * * * * ");
+        
+        //bubbleSort (Descendente)
+        t1 = System.nanoTime();   // start
+        mob = m.bubbleSortDescendente();
+        t2 = System.nanoTime();   // stop
+        t = t2 - t1;
+        System.out.println("n = "+ n + " t = " + t + "ns. Algoritmo Burbuja Descendente = " + mob);
+        
+        System.out.println("* * * * * * * * * * * * * * * ");
+        
+        
+        
+        
+            
+           
     }
     
 }
