@@ -15,7 +15,11 @@ public class DatosOrdenados {
     public DatosOrdenados(int[] valores) {
         this.valores = valores;
     }
-    
+
+    DatosOrdenados() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getSize(){
         return valores.length; 
     }

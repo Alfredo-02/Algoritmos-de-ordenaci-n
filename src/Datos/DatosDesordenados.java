@@ -240,6 +240,77 @@ public class DatosDesordenados {
         return new DatosOrdenados(quickdes);
     }
  //Fin del Metodo QuickSort descendente
+    public DatosOrdenados radix (){
+        int[] arreglor = this.getCopiaValores();
+        int n = arreglor.length;
+        int cont = 0;
+        int pq=0;
+        
+        int x,i,j;
+        for (x = Integer.SIZE-1; x >= 0; x--){
+            int auxiliar [] = new int [arreglor.length];
+            j = 0;
+            for (i = 0; i < arreglor.length; i++){
+                boolean mover = arreglor[i] <<x>=0;
+                if (x==0 ? !mover:mover){
+                    auxiliar[j] = arreglor[i];
+                    j++;
+                   cont++; 
+                }else {
+                    arreglor[i-j] = arreglor[i];
+                    pq++;
+                    
+                }
+               
+            }
+            
+            for (i=j; i<auxiliar.length;i++){
+                auxiliar[i]= arreglor[i-j];
+                
+            }
+            arreglor = auxiliar;
+            
+        }
+        System.out.println("R-comparaciones = " +cont);
+        System.out.println("R-permutaciones = " +pq );
+        return new DatosOrdenados(arreglor);
+    } 
+    public DatosOrdenados radixDescendente (){
+        int[] arreglor = this.getCopiaValores();
+        int n = arreglor.length;
+        int cont = 0;
+        int pq=0;
+        
+        int x,i,j;
+        for (x = Integer.SIZE-1; x >= 0; x--){
+            int auxiliar [] = new int [arreglor.length];
+            j = 0;
+            for (i = 0; i < arreglor.length; i++){
+                boolean mover = arreglor[i] <<x<=0;
+                if (x==0 ? !mover:mover){
+                    auxiliar[j] = arreglor[i];
+                    j++;
+                   cont++; 
+                }else {
+                    arreglor[i-j] = arreglor[i];
+                    pq++;
+                    
+                }
+               
+            }
+            
+            for (i=j; i<auxiliar.length;i++){
+                auxiliar[i]= arreglor[i-j];
+                
+            }
+            arreglor = auxiliar;
+            
+        }
+        System.out.println("R-comparaciones = " +cont);
+        System.out.println("R-permutaciones = " +pq );
+        return new DatosOrdenados(arreglor);
+    } 
+    
     
         public DatosOrdenados shell() {
         int [] s = this.getCopiaValores();
