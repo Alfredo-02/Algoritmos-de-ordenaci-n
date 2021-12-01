@@ -337,8 +337,8 @@ public class DatosDesordenados {
             
         }
 }
-        System.out.println("BS-iteraciones = " + cont1);
-        System.out.println("BS-comparaciones = " + cont2);
+        System.out.println("SS-iteraciones = " + cont1);
+        System.out.println("SS-comparaciones = " + cont2);
         return new DatosOrdenados(s);
 }
     public DatosOrdenados shellDescendente() {
@@ -366,8 +366,8 @@ public class DatosDesordenados {
             
         }
 }       
-        System.out.println("BS-iteraciones = " + cont1);
-        System.out.println("BS-comparaciones = " + cont2);
+        System.out.println("SS-iteraciones = " + cont1);
+        System.out.println("SS-comparaciones = " + cont2);
         return new DatosOrdenados(s);
 }
     
