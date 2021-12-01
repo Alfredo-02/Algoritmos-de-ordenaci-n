@@ -115,5 +115,31 @@ public class TestOrdenamiento {
         
         System.out.println("* * * * * * * * * * * * * * * ");
     
+         //Radix (Ascendente)
+        t1 = System.nanoTime();   // start
+        DatosOrdenados mol = m.radix();
+        t2 = System.nanoTime();   // stop 
+        t = t2 - t1;
+        System.out.println("n = "+ n + " t = " + t + "ns. Algoritmo Radix Ascendente = " + mol);
+        
+        System.out.println("* * * * * * * * * * * * * * * ");
+        
+        //Radix (Datos Ordenados)
+        t1 = System.nanoTime();   // start
+        mol = m.radix();
+        t2 = System.nanoTime();   // stop 
+        t = t2 - t1;
+        System.out.println("n = "+ n + " t = " + t + "ns. Algoritmo Radix Ascendente Mejor Caso = " + mol);
+        
+        System.out.println("* * * * * * * * * * * * * * * ");
+        
+        //Radix (Descendente)
+        t1 = System.nanoTime();   // start
+        mol = m.radixDescendente();
+        t2 = System.nanoTime();   // stop 
+        t = t2 - t1;
+        System.out.println("n = "+ n + " t = " + t + "ns. Algoritmo Radix Descendente = " + mol);
+        
+        System.out.println("* * * * * * * * * * * * * * * ");
 }
 }
